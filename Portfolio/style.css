@@ -1,239 +1,456 @@
-/*********************Styling for navbar********************/
+
+/* =====================================
+   JANELLE MELLA — EDITORIAL MINIMAL
+   ===================================== */
+
+/* COLOR PALETTE */
+:root {
+  --background: #faf7f2;
+  --text: #33231c;
+  --accent: #80533c;
+  --muted: #70645b;
+  --border: #d5c5b6;
+  --serif: Georgia, 'Times New Roman', serif;
+}
+
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
-.navbar {
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* NAVIGATION */
+.site-header {
   display: flex;
   justify-content: space-between;
-  padding: 1em;
-  background: #856e58;
-  color: white;
+  align-items: center;
+  padding: 28px 8%;
+  gap: 30px;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
-.nav-buttons {
+.site-logo {
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+.main-nav {
   display: flex;
-  gap: 1em;
+  align-items: center;
+  gap: 45px;
 }
 
-.nav-item {
-  padding: 0.5em 1em;
-  color: white;
-  text-decoration: none;
-  font-size:1.2em;
-  font-weight:bold;
+.main-nav a {
+  font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
 }
 
-.hamburger {
+.main-nav a:hover,
+.main-nav a.active {
+  border-color: var(--accent);
+}
+
+.menu-toggle {
   display: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 27px;
+  cursor: pointer;
 }
 
-.content {
-  width: 50%;
-  margin: auto;
-  font-size:1.4em;
+/* ABOUT HERO */
+.about-hero {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 75px 8% 70px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 7%;
 }
 
-img.fm{
-  width: 80%;
-  margin: auto;
-  display: block;
-}
-
-#hero { position: relative; }
-#hero h1 { 
-  position: absolute; 
-  top: 30%; left: 50%; 
-  transform: translate(-50%,-50%); 
-  font-family: 'Impact', Arial Black, sans-serif;
-  font-size: 5em;
-  font-weight: 900;
-  color: #fff;
-  text-shadow: 
-    0 0 10px #000, 
-    3px 3px 0 #000,
-    -3px -3px 0 #000,
-    3px 0 0 #000;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+.hero-photo {
   margin: 0;
 }
-.cutline {
-  text-align: center;
-}
-/*********************About Me Section******************/
 
-.aboutme-title {
-  color: rgb(41, 31, 7);
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 90px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.aboutme-blurb {
-  color: rgb(82, 61, 12);
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 25px;
-  margin-bottom: 20px;
-  width: 60%;        /* so lines don't go to the end of the page */
-  margin: 0 auto;    /* centers the blurb box */
-  margin-bottom: 20px;
-}
-
-/*image formatting */
-.janelle {
-  width: 30%;
+.hero-photo img {
+  display: block;
+  width: 100%;
   height: auto;
-  display: block; /* makes sure the image doesn't function as text but as its own entity I believe */
-  margin: auto;
+  max-height: 510px;
+  object-fit: cover;
 }
 
-/*caption formatting */
-.aboutme-caption {
-  width: 30%;
-  font-size: 15px;
-  text-align: center;
-  margin: 0 auto;  /* centers the caption not just the text itself */
-  margin-top: 5px; 
+.hero-photo figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
 }
 
-/********************Portfolio section******************/
-
-/*clips formatting */
-.clip-section {
-  margin-bottom: 40px; /* margin-bottom and -top makes there be no gap between the headlines and text below and above it*/
+.eyebrow {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--accent);
 }
 
-.clip-links {
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 25px;
+.hero-content h1 {
+  font-size: clamp(42px, 4.2vw, 67px);
+  font-weight: normal;
+  line-height: 1.14;
+  letter-spacing: -1.5px;
+  margin: 22px 0 28px;
 }
 
-.clip-links a {
+.hero-content > p:not(.eyebrow) {
+  font-size: 20px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--accent);
+  font-size: 16px;
+}
+
+/* ABOUT — THREE COLUMNS */
+.about-columns {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 55px 8% 95px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-column {
+  padding: 0 35px;
+  border-right: 1px solid var(--border);
+}
+
+.about-column:first-child {
+  padding-left: 0;
+}
+
+.about-column:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.about-column h2 {
+  font-size: clamp(27px, 2.5vw, 36px);
   font-style: italic;
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 0 0 22px;
 }
 
-.clip-titles {
-  margin-bottom: 10px;
+.about-column p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0 0 18px;
 }
 
-.portfolio-title {
-  color: rgb(41, 31, 7);
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 60px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+.column-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--accent);
+  font-size: 16px;
 }
 
-/******************Contact Section***********************/
+/* INNER PAGES */
+.inner-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 75px 8% 110px;
+}
 
-.contact-title {
-  color: rgb(41, 31, 7);
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 60px;
-  margin-top: 20px;
+.page-intro {
+  max-width: 820px;
+  margin-bottom: 85px;
+}
+
+.page-intro h1 {
+  font-size: clamp(52px, 6.5vw, 88px);
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin: 22px 0 28px;
+}
+
+.page-intro > p:not(.eyebrow) {
+  font-size: 22px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* PORTFOLIO SECTIONS */
+.publication-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 55px;
+  padding: 42px 0 65px;
+  border-top: 1px solid var(--border);
+}
+
+.publication-section h2 {
+  font-size: 31px;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.article-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.article-list a:first-child {
+  padding-top: 0;
+}
+
+.article-list .arrow {
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+.article-list a:hover {
+  color: var(--accent);
+}
+
+/* CONTACT PAGE */
+.contact-intro {
+  margin-bottom: 65px;
 }
 
 .contact-links {
-  margin-top: 20px;
-  font-size: 30px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-top: 35px;
 }
 
-/*image formatting -- I used AI to help with logistics of positioning the images on the page because I was having trouble */
-.contact-photos{
-  width: 50%;
-  height: auto;
+.contact-links a {
+  font-size: 19px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--accent);
+}
+
+.contact-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px;
+}
+
+.contact-gallery figure {
+  margin: 0;
+}
+
+.contact-gallery img {
   display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  display: flex; /*puts the images side by side */
-  gap: 10px; /*creates a little space between images */
-  text-align: center;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
 }
 
-/*caption formatting */
-.contact-caption {
-  text-align: center;  
-  margin-top: 5px;
-  font-size: 10px;
+.contact-gallery figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-/* each caption side by side */
-.caption-alignment {
-  display: inline-block; /*makes sure the texts can be side by side */
-  width: 25%;            
-  text-align: center;    
+.contact-gallery figcaption a {
+  text-decoration: underline;
 }
 
-/*********************************************************/
-
-/*General headline styling for each page*/
-
-h1 {
-  color: rgb(41, 31, 7);
-  font-family:'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 60px;
-  margin-bottom: 20px; 
+/* FOOTER */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 8%;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
 }
 
-h2 {
-  color: rgb(82, 61, 12);
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
+.site-footer p {
+  margin: 0;
 }
 
-/* Formatting for all hyperlinks */
-
-a {
-  color: rgb(82, 61, 12);
-  text-decoration: none; /*text-decoration takes away the line underneath that automatically shows up when hyperlinked*/
-}
-
-a:hover { /* a:hover just formats the link's hovering function and allows a user to hover */
-  color: #1113b4; /* Makes the words turn blue when users hover their cursor so they know the links are clickable */
-}
-
-/* Mobile for navbar/page overall*/
-
-@media (orientation: portrait) {
-
-  .nav-buttons {
-    display: none;
+/* TABLET */
+@media (max-width: 1000px) {
+  .about-hero {
+    gap: 5%;
   }
 
-  .hamburger {
+  .hero-content h1 {
+    font-size: 45px;
+  }
+
+  .about-column {
+    padding: 0 22px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .site-header {
+    padding: 20px 6%;
+  }
+
+  .site-logo {
+    font-size: 24px;
+  }
+
+  .menu-toggle {
     display: block;
   }
 
-  .nav-buttons.active {
-    display: flex;
-    flex-direction: column;
+  .main-nav {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: #333;
-    padding: 1em;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 6% 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 
-  .content {
-    width: 95%;
+  .main-nav.open {
+    display: flex;
   }
 
-  body {
-    width: 100%;
-    font-size: 2em;
+  .about-hero {
+    grid-template-columns: 1fr;
+    padding: 45px 6% 50px;
+    gap: 35px;
+  }
+
+  .hero-photo {
+    max-width: 430px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(40px, 9vw, 54px);
+  }
+
+  .hero-content > p:not(.eyebrow) {
+    font-size: 18px;
+  }
+
+  .about-columns {
+    grid-template-columns: 1fr;
+    padding: 15px 6% 65px;
+    border-top: none;
+  }
+
+  .about-column,
+  .about-column:first-child,
+  .about-column:last-child {
+    padding: 35px 0;
+    border-right: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .about-column h2 {
+    font-size: 32px;
+  }
+
+  .inner-page {
+    padding: 55px 6% 80px;
+  }
+
+  .page-intro {
+    margin-bottom: 60px;
+  }
+
+  .page-intro h1 {
+    font-size: 52px;
+  }
+
+  .page-intro > p:not(.eyebrow) {
+    font-size: 19px;
+  }
+
+  .publication-section {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 35px 0 55px;
+  }
+
+  .publication-section h2 {
+    font-size: 29px;
+  }
+
+  .article-list a {
+    font-size: 18px;
+  }
+
+  .contact-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-gallery img {
+    height: auto;
+  }
+
+  .site-footer {
+    padding: 25px 6%;
   }
 }

@@ -1,51 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link href="style.css" type="text/css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Janelle Mella is a Chicago-based journalist and Northwestern University student.">
+  <title>About | Janelle Mella</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<!----------------Navbar-------------------->
 <body>
-  <div class="navbar">    
-    <div class="nav-buttons">
-      <a href="aboutme.html" class="nav-item">About Me</a>
-      <a href="portfolio.html" class="nav-item">Portfolio</a>
-      <a href="contact.html" class="nav-item">Contact</a>
-    </div>
-    
-    <div class="nav-item hamburger">☰</div>
-  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <a href="aboutme.html" class="site-logo">Janelle Mella</a>
+
+    <button class="menu-toggle" type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="main-nav">☰</button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="aboutme.html" class="active" aria-current="page">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- INTRODUCTION -->
+    <section class="about-hero">
+
+      <figure class="hero-photo">
+        <img src="janelle.jpg"
+          alt="Portrait of Janelle Mella, Credit: Joe Timmerman">
+      </figure>
+
+      <div class="hero-content">
+        <p class="eyebrow">ABOUT ME</p>
+
+        <h1>Hi, I'm Janelle</h1>
+
+        <p>
+            I'm a Chicago-based reporter studying Journalism, Asian American Studies and Film and Media Studies at Northwestern University.
+
+        </p>
+
+        <p>
+          I find stories in everyday places by staying curious about people outside the usual conversation.
+        </p>
+      
+
+        <a href="portfolio.html" class="text-link">
+          More on my reporting <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- THREE EDITORIAL SECTIONS -->
+    <section class="about-columns">
+
+      <article class="about-column">
+        <h2>Reporting</h2>
+
+        <p>
+          I'm currently a reporting intern at Block Club
+          Chicago, covering neighborhood developments,
+          transportation, public health and local businesses.
+        </p>
+
+        <a href="portfolio.html" class="column-link">
+          Read my work →
+        </a>
+      </article>
+
+      <article class="about-column">
+        <h2>Research</h2>
+
+        <p>
+          I'm majoring in Journalism and Asian American
+          Studies, with a minor in Film and Media Studies.
+          I'll complete my coursework in March 2027.
+        </p>
+
+        <p>
+          My senior thesis will explore Filipino-Mexican
+          marriages in California's agricultural communities
+          during the 1920s and 1930s, a history connected
+          to my own Filipino and Mexican heritage.
+        </p>
+      </article>
+
+      <article class="about-column">
+        <h2>Interests</h2>
+
+        <p>
+          I'm passionate about investigative and
+          solutions-oriented journalism that highlights
+          underrepresented perspectives and examines
+          how broader policies shape everyday life.
+        </p>
+
+        <p>
+          I hope to pursue a career covering local
+          communities and telling stories that make
+          complicated issues more accessible.
+        </p>
+
+        <a href="contact.html" class="column-link">
+          Get in touch →
+        </a>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Janelle Mella</p>
+    <a href="contact.html">Contact ↗</a>
+  </footer>
 
   <script>
-    document.querySelector('.hamburger').onclick = () => {
-      document.querySelector('.nav-buttons').classList.toggle('active');
-    };
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', isOpen);
+      menuButton.textContent = isOpen ? '✕' : '☰';
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+      });
+    });
   </script>
-<!---------------------Main Content------------------------->
-<div class = 'aboutme-title'>
-  Janelle Mella 
-</div>
-
-<!--image-->
-<img src= "janelle.jpg" alt='Portrait of Janelle Mella, photo by Joe Timmerman' class = 'janelle'/> 
-
-<div class="aboutme-caption">
-  Janelle Mella |
-  <span class='credit'>
-    Credit:
-    <a href='https://wisconsinwatch.org/author/jtimmerman/'>
-      Joe Timmerman/Wisconsin Watch Photojournalist
-    </a>
-  </span>
-</div>
-
-<!--blurb-->
-<div class = 'aboutme-blurb'>
-  <i>
-    <p>Janelle Mella is a junior at Northwestern University majoring in Journalism with double minors in Film and Media Studies and Asian American Studies. At Northwestern, she has held several editing and reporting positions at The Daily Northwestern, covering student government and campus issues.</p>
-
-    <p>She has also reported professionally for Wisconsin Watch, where she covered statewide issues and explored solutions in rural communities, with a focus on housing affordability and homelessness. In the summer of 2026, she will serve as a metro reporting intern at The News & Observer.</p>
-
-    <p>Janelle is passionate about telling stories rooted in community voices and aspires a career covering local communities, grounded in investigative and solutions-oriented journalism.</p></i>
-</div>
 
 </body>
 </html>
