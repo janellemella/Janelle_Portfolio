@@ -241,28 +241,46 @@ img {
   line-height: 1.3;
 }
 
-.article-list a {
+/* PORTFOLIO DESCRIPTION */
+.publication-content {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.publication-description {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 25px;
+  max-width: 650px;
+}
+
+/* PORTFOLIO LINK */
+.publication-link {
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   gap: 25px;
-  padding: 22px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
+  transition: color 0.2s ease;
 }
 
-.article-list a:first-child {
-  padding-top: 0;
-}
-
-.article-list .arrow {
+.publication-link .arrow {
   font-size: 25px;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.article-list a:hover {
+.publication-link:hover {
   color: var(--accent);
+}
+
+.publication-link:hover .arrow {
+  transform: translate(3px, -3px);
 }
 
 /* CONTACT PAGE */
@@ -438,8 +456,12 @@ img {
     font-size: 29px;
   }
 
-  .article-list a {
+  .publication-description {
     font-size: 18px;
+  }
+
+  .publication-link {
+    font-size: 17px;
   }
 
   .contact-gallery {
@@ -453,4 +475,14 @@ img {
   .site-footer {
     padding: 25px 6%;
   }
+}
+
+/* PUBLICATION LOCATIONS */
+.publication-location {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  margin: 10px 0 0;
 }
